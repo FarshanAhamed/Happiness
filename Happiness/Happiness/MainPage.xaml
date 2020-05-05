@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Happiness.MainPage"
+             xmlns:local="clr-namespace:Happiness.Renderers"
+             xmlns:controls="clr-namespace:Happiness.Controls"
+             xmlns:ffimagesvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+    <Grid>
+        <Frame x:Name="mainPart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#000008" Opacity="0">
+            <ffimage:CachedImage x:Name="hole" VerticalOptions="Center" HorizontalOptions="Center" Opacity="0" >
+                <ffimage:CachedImage.Source>
+                    <x:String>resource://Happiness.Resources.hole.gif?assembly=Happiness</x:String>
+                </ffimage:CachedImage.Source>
+            </ffimage:CachedImage>
+        </Frame>
+
+        <Grid x:Name="mainGrid" Padding="25, 0, 25, 0" RowSpacing="10" 
+        VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <ffimagesvg:SvgCachedImage x:Name="image" FadeAnimationForCachedImages="True" HeightRequest="100" >
+        <ffimagesvg:SvgCachedImage.Source>
+            <x:String>resource://Happiness.Resources.laugh.svg?assembly=Happiness</x:String>
+        </ffimagesvg:SvgCachedImage.Source>
+    </ffimagesvg:SvgCachedImage>
+    <Label x:Name="head" Grid.Row="1" HorizontalOptions="Center" Margin="0, 0, 0, 30">
+        <Label.FormattedText>
+            <FormattedString>
+                <Span Text="Happiness Project" FontFamily="Countryside" FontAttributes="Bold" FontSize="Title"/>
+            </FormattedString>
+        </Label.FormattedText>
+    </Label>
+    <Frame x:Name="userEntry" Grid.Row="2" Visual="Material" CornerRadius="15" BackgroundColor="#F1F1F1" Padding="10, 5, 10, 5">
+    <local:CoolEntry Visual="Material" Placeholder="Username" Keyboard="Email" />
+    </Frame>
+    <controls:PasswordEntry x:Name="passwordEntry" Grid.Row="3" BackgroundColor="#F1F1F1"
+            Placeholder="Password" CornerRadius="15" FramePadding="10, 5, 10, 5"
+            Icon="resource://Happiness.Resources.show.svg?assembly=Happiness"
+            HideIcon="resource://Happiness.Resources.hide.svg?assembly=Happiness"
+            IconOpacity="{OnPlatform iOS='0.7',Android='1'}"
+            IconScale="0.7" Hint="We don't store passwords on our server. Please use your precious brain to remember it as we cannot recall it." HintColor="DarkRed"/>
+    <Button x:Name="login" Margin="0, 40, 0, 0" TextColor="White" CornerRadius="5" Grid.Row="4" BackgroundColor="DarkBlue" HorizontalOptions="Center" Visual="Material" Text="let's go" Clicked="Login_Clicked"/>
+        
+</Grid>
+    <ffimage:CachedImage x:Name="footer" Opacity="0" TranslationY="300"  VerticalOptions="End" HorizontalOptions="CenterAndExpand">
+        <ffimage:CachedImage.Source>
+            <x:String>resource://Happiness.Resources.footer.png?assembly=Happiness</x:String>
+        </ffimage:CachedImage.Source>
+    </ffimage:CachedImage>
+        
+    </Grid>
+</ContentPage>
